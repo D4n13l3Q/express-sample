@@ -1,10 +1,12 @@
 import express from "express";
 import 'dotenv/config';
+import logMiddleware from "./middlewares/log.middleware.js";
 
-const port = process.env.port
+const port = process.env.PORT
 const app = express()
 
 app.use(express.json())
+app.use(logMiddleware);
 
 app.get('/',  (request, response) =>
     response.send('Sei nel progetto forkato')
